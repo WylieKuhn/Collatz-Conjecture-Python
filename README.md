@@ -37,10 +37,10 @@ Starting from (2^150,000) + 1:
 Roughly 4.76 times faster.
 
 ## Problems
-- When I added functionality to save the initial seed, number of 3n+1 steps, n/2 steps, and the ratio of those steps into a JSON array for analysis, it not only massively slowed down the program but created a 15GB output file. This is probably due to the size of the integers. I have also been informed of several read/write limitations in JSON that make it brutally ineficient for this task. I have a new plan outlined in the to-do's below.
+- When I added functionality to save the initial seed, number of 3n+1 steps, n/2 steps, and the ratio of those steps into a JSON array for analysis, it not only massively slowed down the program but created a 15GB output file. This is probably due to the size of the integers. I have also been informed of several read/write limitations in JSON that make it brutally ineficient for this task. I suspect a CSV file may be better suited, though file size will still be an issue unless I can compress the sequence numbers using some kind of notation without losing precision. I have a new plan outlined in the to-do's below.
 
 ## To Do  
-- [ ] Add functionality to save the initial seed, number of 3n+1 steps, n/2 steps, and the ratio of those steps into a json array for analysis.
+- [ ] Add functionality to save the initial seed, number of 3n+1 steps, n/2 steps, and the ratio of those steps into a CSV file for analysis.
 - [ ] Update code to detect if a cycle has been found (tortois and hare algorithm?) and if it has, save the starting seed.
 - [ ] Impliment seperate threads for calculations and writing data, passing the data between threads using the deque from the collections module. This will hopefully speed up the calculations thread by eliminating it's need to write data, and prevent the data that needs to be written from exceeding the memory of the computer as once the second thread writes the data to disk, it can be released.
-- [ ] See if sequence numbers can be compressed using some kind of scientific notation without losing precision.
+- [ ] See if sequence numbers can be compressed using some kind of notation without losing precision.
